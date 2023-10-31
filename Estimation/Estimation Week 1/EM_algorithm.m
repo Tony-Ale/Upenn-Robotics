@@ -4,6 +4,8 @@ function [ mu, E] = EM_algorithm(mu, E, k, D, Hue, Sat)
 % E = covariance matrix, it should be a cell array
 % mu = mean...it should be a cell array
 % D = number of dimensions 
+% Hue = column vector
+% Sat = column vector
 
 xi = [Hue, Sat];
 
