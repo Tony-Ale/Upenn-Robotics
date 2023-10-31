@@ -4,10 +4,8 @@ function [ mu, E] = EM_algorithm(mu, E, k, D, Hue, Sat)
 % E = covariance matrix, it should be a cell array
 % mu = mean...it should be a cell array
 % D = number of dimensions 
-%syms x E_k mu_k
+
 xi = [Hue, Sat];
-%g(E_k, mu_k, x) = (1/((2*pi^D/2)*(det(E_k))^0.5))*exp(-0.5*(x-mu_k)' * E_k*(x-mu_k));
-%gaussian = mvnpdf(xi(:, n), mu{m}, E{m});
 
 % starts here
 p_val = zeros(1, k);
@@ -45,18 +43,12 @@ for i = 1:data_len
         mu{q} = mean_data{q}/z_k(q); % finding the mean
         E{q} = covar{q}/z_k(q); % finding the covariance matrix
         curr_mean = mu{q};
-        
-        pp = sum(abs(prev_mean - curr_mean));
-        if q == k
-            mu{2}
-            pp
-        end
+
         % criterion to stop the loop
         if sum(abs(prev_mean - curr_mean)) < 0.001
             count = count + 1;
         end
         if count == k
-            i
             return
         end
     end
