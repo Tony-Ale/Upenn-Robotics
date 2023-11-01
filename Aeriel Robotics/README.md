@@ -1,1 +1,1 @@
-![1D Quadrotor Simulation](1d quad.JPG)
+![1D quadrotor image](1d-quad.JPG)
